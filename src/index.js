@@ -43,7 +43,7 @@ const fetchImages = async () => {
     );
   }
 
-  const totPages = Math.round(data.totalHits / MAX_ITEMS);
+  const totalPages = Math.round(data.totalHits / MAX_ITEMS);
   setTimeout(() => {
     if (currentPage === totalPages) {
       Notiflix.Notify.warning("We're sorry, but you've reached the end of search results.");
