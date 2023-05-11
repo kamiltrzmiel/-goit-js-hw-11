@@ -1,0 +1,32 @@
+{
+  "name": "goit-js-hw-10",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://kamiltrzmiel.github.io/goit-js-hw-11",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /goit-js-hw-11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamiltrzmiel/goit-js-hw-11.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamiltrzmiel/goit-js-hw-11/issues"
+  },
+  "devDependencies": {
+    "buffer": "^5.7.1",
+    "parcel": "^2.8.3",
+    "posthtml-include": "^1.7.4"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "install": "^0.13.0",
+    "notiflix": "^3.2.6",
+    "npm": "^9.6.6",
+    "simplelightbox": "^2.14.0"
+  }
+}
