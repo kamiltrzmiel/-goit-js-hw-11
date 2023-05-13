@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
-import simpleLightbox from 'simplelightbox';
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const API_KEY = '35894973-b1abdffa43a0657d683efc17a';
@@ -28,7 +28,6 @@ const searchParams = () =>
 const fetchImages = async () => {
   const response = await axios.get(`${API_URL}?${searchParams()}`);
   const data = response.data;
-
   if (data.totalHits === 0) {
     Notiflix.Notify.failure(`No results found for '${searchTerm}'`);
     return;
@@ -54,14 +53,15 @@ const fetchImages = async () => {
 
 const renderImages = images => {
   images.forEach(image => {
+    new SimpleLightbox('#gallery a');
     const imageCard = document.createElement('div');
-    imageCard.classList.add('photo-card');
+    imageCard.classList.add('image-box');
     imageCard.innerHTML = `
             <img src="${image.webformatURL}" loading='lazy'/>
             <h3>${image.user}</h3>
             <p>Likes: ${image.likes} | Views: ${image.views} | Comments: ${image.comments} | Downloads: ${image.downloads}</p>
         `;
-    galleryEl.appendChild(imageCard);
+    galleryEl.append(imageCard);
   });
 };
 
