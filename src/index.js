@@ -14,6 +14,10 @@ let searchTerm = '';
 let currentPage = 1;
 let totalPages = 0;
 
+const clearGallery = () => {
+  galleryEl.innerHTML = '';
+};
+
 const searchParams = () =>
   new URLSearchParams({
     key: API_KEY,
@@ -32,7 +36,7 @@ const fetchImages = async () => {
     Notiflix.Notify.failure(`No results found for '${searchTerm}'`);
     return;
   }
-
+  //declaration images, renderImages
   const images = data.hits;
   renderImages(images);
 
@@ -63,10 +67,6 @@ const renderImages = images => {
         `;
     galleryEl.append(imageCard);
   });
-};
-
-const clearGallery = () => {
-  galleryEl.innerHTML = '';
 };
 
 const makeGallery = e => {
