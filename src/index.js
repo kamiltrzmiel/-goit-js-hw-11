@@ -3,6 +3,8 @@ import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+new SimpleLightbox('#gallery a');
+
 const API_KEY = '35894973-b1abdffa43a0657d683efc17a';
 const API_URL = 'https://pixabay.com/api/';
 const MAX_ITEMS = 40;
@@ -57,16 +59,18 @@ const fetchImages = async () => {
 
 const renderImages = images => {
   images.forEach(image => {
-    new SimpleLightbox('#gallery a');
     const imageCard = document.createElement('div');
     imageCard.classList.add('image-box');
     imageCard.innerHTML = `
-            <img src="${image.webformatURL}" loading='lazy'/>
-            <h3>${image.user}</h3>
-            <p>Likes: ${image.likes} | Views: ${image.views} | Comments: ${image.comments} | Downloads: ${image.downloads}</p>
+          <a href="${image.largeImageURL}">
+          <img src="${image.webformatURL}" alt="${image.tags}" />
+          </a>
+          <h3>${image.user}</h3>
+          <p>Likes: ${image.likes} | Views: ${image.views} | Comments: ${image.comments} | Downloads: ${image.downloads}</p>
         `;
     galleryEl.append(imageCard);
   });
+  new SimpleLightbox('#gallery a');
 };
 
 const makeGallery = e => {

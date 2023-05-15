@@ -39,12 +39,16 @@ h1 {
 
 .image-box {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #f1f1f1;
 }
 
 .image-box img {
-  height: 200px;
+  margin-top: 20px;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
   margin-bottom: 10px;
 }
